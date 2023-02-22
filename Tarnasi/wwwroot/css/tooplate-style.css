@@ -138,6 +138,10 @@ b, strong {
   animation-delay: 4s;
 }
 
+#leafMap {
+    height: 400px;
+}
+
 @keyframes BottomTotop {
   0% {
     opacity: 0;
