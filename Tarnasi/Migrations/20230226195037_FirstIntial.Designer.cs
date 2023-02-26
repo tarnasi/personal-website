@@ -12,8 +12,8 @@ using Tarnasi.Models;
 namespace Tarnasi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230223102324_MyFirstMigration")]
-    partial class MyFirstMigration
+    [Migration("20230226195037_FirstIntial")]
+    partial class FirstIntial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

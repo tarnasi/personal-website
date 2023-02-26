@@ -21,7 +21,13 @@ namespace Tarnasi.Models
 
         public string? Url { get; set; }
         public DateTime published_at = DateTime.Now;
-        public virtual Category Category { get; set; }
-        public virtual User User { get; set; }
+
+        [ForeignKey("CategoryId")]
+        public Category Category { get; set; }
+        public long CategoryId { get; set; }
+
+        [ForeignKey("UserId")]
+        public User User { get; set; }
+        public long UserId { get; set; }
     }
 }
