@@ -5,13 +5,13 @@
 namespace Tarnasi.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstIntial : Migration
+    public partial class FirstInitl : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Category",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
@@ -21,11 +21,11 @@ namespace Tarnasi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_Category", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Categories_Categories_CategoryId",
+                        name: "FK_Category_Category_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Categories",
+                        principalTable: "Category",
                         principalColumn: "Id");
                 });
 
@@ -46,7 +46,7 @@ namespace Tarnasi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Articles",
+                name: "Article",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
@@ -60,15 +60,15 @@ namespace Tarnasi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Articles", x => x.Id);
+                    table.PrimaryKey("PK_Article", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Articles_Categories_CategoryId",
+                        name: "FK_Article_Category_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Categories",
+                        principalTable: "Category",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Articles_Users_UserId",
+                        name: "FK_Article_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -76,18 +76,18 @@ namespace Tarnasi.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Articles_CategoryId",
-                table: "Articles",
+                name: "IX_Article_CategoryId",
+                table: "Article",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Articles_UserId",
-                table: "Articles",
+                name: "IX_Article_UserId",
+                table: "Article",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categories_CategoryId",
-                table: "Categories",
+                name: "IX_Category_CategoryId",
+                table: "Category",
                 column: "CategoryId");
         }
 
@@ -95,10 +95,10 @@ namespace Tarnasi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Articles");
+                name: "Article");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Category");
 
             migrationBuilder.DropTable(
                 name: "Users");

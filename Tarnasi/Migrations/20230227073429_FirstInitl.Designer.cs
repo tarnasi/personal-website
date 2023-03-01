@@ -12,8 +12,8 @@ using Tarnasi.Models;
 namespace Tarnasi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230226195037_FirstIntial")]
-    partial class FirstIntial
+    [Migration("20230227073429_FirstInitl")]
+    partial class FirstInitl
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,7 +62,7 @@ namespace Tarnasi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Articles");
+                    b.ToTable("Article");
                 });
 
             modelBuilder.Entity("Tarnasi.Models.Category", b =>
@@ -85,7 +85,7 @@ namespace Tarnasi.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Tarnasi.Models.User", b =>
